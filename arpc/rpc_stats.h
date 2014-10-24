@@ -67,8 +67,7 @@ typedef rpc_stats::rpc_proc_t rpc_stat_proc_t;
 template<> struct hashfn<rpc_stat_proc_t> {
     hashfn () {}
     hash_t operator() (const rpc_stat_proc_t &s) const {
-      u_int64_t tmp = (((s.vers << 4) + s.proc) << 16) + s.prog;
-      return tmp;
+      return (((s.vers << 4) + s.proc) << 16) + s.prog;
     }
 };
 
